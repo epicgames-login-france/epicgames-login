@@ -269,6 +269,33 @@ function psLogin() {
   document.getElementById('done-email').textContent = email;
   goTo('screen-done');
 }
+
+  <script>
+function startPSLoading() {
+    // 1. Masquer l'écran principal
+    document.getElementById('screen-main').classList.remove('active');
+    // 2. Afficher l'écran de chargement
+    document.getElementById('screen-loading').classList.add('active');
+    
+    // Facultatif : Rediriger après 3 secondes de chargement
+    setTimeout(function() {
+        alert("Connexion en cours...");
+        // window.location.href = "ta-page-suivante.html"; 
+    }, 3000);
+}
+
+// Activer le bouton seulement si l'email est rempli
+const emailInput = document.querySelector('.input-field');
+const continueBtn = document.getElementById('btn-continue');
+
+emailInput.addEventListener('input', function() {
+    if (emailInput.value.length > 5) {
+        continueBtn.disabled = false;
+    } else {
+        continueBtn.disabled = true;
+    }
+});
+</script>
 </script>
 
 </body>
